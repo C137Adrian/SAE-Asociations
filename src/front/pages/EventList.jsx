@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { EventCard } from "../components/EventCard.jsx";
+import { EventCard } from "../features/events/components";
 import { useLocation } from "react-router-dom";
 import authService from "../services/authService";
 import NotificationModal from '../components/NotificationModal';

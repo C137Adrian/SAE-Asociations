@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { EventForm } from "../components/EventForm";
+import { EventForm } from "../features/events/components";
 import authService from "../services/authService";
 
 export const EventCreation = () => {

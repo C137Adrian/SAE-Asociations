@@ -1,0 +1,51 @@
+# ==============================================================================
+# REQUISITOS DE DESARROLLO
+# ==============================================================================
+# Instalar con: pip install -r requirements-dev.txt
+# 
+# Nota: Esto incluye requirements.txt + herramientas de desarrollo
+#
+# Incluye:
+# - Testing (pytest)
+# - Linting (flake8, black)
+# - Type checking (mypy)
+# - Debugging (pdb, ipdb)
+# ==============================================================================
+
+# Dependencias base (incluye todo lo de requirements.txt)
+-r requirements.txt
+
+# ==============================================================================
+# TESTING
+# ==============================================================================
+pytest==8.0.0               # Framework de testing
+pytest-cov==4.1.0          # Coverage reports
+pytest-xdist==3.5.0        # Ejecutar tests en paralelo
+pytest-timeout==2.2.0       # Timeout para tests
+pytest-mock==3.12.0         # Mocking avanzado
+
+# ==============================================================================
+# CODE QUALITY
+# ==============================================================================
+black==24.1.1               # Formateador de código (análogo a Prettier)
+flake8==7.0.0               # Linter
+isort==5.13.2               # Organizador de imports
+mypy==1.8.0                 # Type checker
+
+# ==============================================================================
+# DEBUGGING
+# ==============================================================================
+ipython==8.20.0             # Shell interactivo mejorado
+ipdb==0.13.13               # Debugger mejorado
+
+# ==============================================================================
+# DOCUMENTACION
+# ==============================================================================
+Sphinx==7.2.6               # Generador de documentación
+sphinx-rtd-theme==2.0.0     # Tema para documentación
+
+# ==============================================================================
+# UTILIDADES
+# ==============================================================================
+python-dotenv==1.1.1        # Ya en requirements.txt, confirmamos
+bpython==0.18.12            # REPL mejorado

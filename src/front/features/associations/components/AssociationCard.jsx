@@ -75,4 +75,4 @@ export const AssociationCard = ({ association, statistics }) => {
             </div>
         </div>
     );
-}; 
+};

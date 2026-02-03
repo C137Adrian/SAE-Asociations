@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import authService from '../services/authService';
-import saeLogo from '../assets/img/SAE-LOGO.png';
-import '../styles/navbar.css';
+import authService from '../../services/authService';
+import saeLogo from '../../assets/img/SAE-LOGO.png';
+import '../../styles/navbar.css';
 
 const Navbar = () => {
   const location = useLocation();

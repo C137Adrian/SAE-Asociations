@@ -1,5 +1,5 @@
 import React from 'react';
-import useGlobalReducer from '../hooks/useGlobalReducer';
+import useGlobalReducer from '../../hooks/useGlobalReducer';
 
 const GlobalLoader = () => {
     const { store } = useGlobalReducer();
@@ -24,4 +24,4 @@ const GlobalLoader = () => {
     );
 };
 
-export default GlobalLoader; 
+export default GlobalLoader;

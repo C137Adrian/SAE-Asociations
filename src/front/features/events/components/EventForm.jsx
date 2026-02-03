@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import authService from '../services/authService.js';
-import ImageUploader from './ImageUploader';
-import NotificationModal from './NotificationModal';
-import useNotification from '../hooks/useNotification';
+import authService from '../../../services/authService.js';
+import { ImageUploader, NotificationModal } from '../../../shared/components';
+import useNotification from '../../../hooks/useNotification';
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || window.location.origin;
 

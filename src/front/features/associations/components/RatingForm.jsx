@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import StarRating from './StarRating';
-import { ratingService } from '../services/ratingService';
+import { StarRating } from '../../../shared/components';
+import { ratingService } from '../../../services/ratingService';
 
 const RatingForm = ({
     show,
@@ -240,4 +240,4 @@ const RatingForm = ({
     );
 };
 
-export default RatingForm; 
+export default RatingForm;

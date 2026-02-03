@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AssociationCard } from "../components/AssociationCard.jsx";
+import { AssociationCard } from "../features/associations/components";
 import authService from "../services/authService";
 import NotificationModal from '../components/NotificationModal';
 import useNotification from '../hooks/useNotification';

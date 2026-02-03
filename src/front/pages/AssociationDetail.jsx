@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import RatingDisplay from "../components/RatingDisplay";
-import RatingList from "../components/RatingList";
-import RatingForm from "../components/RatingForm";
+import { RatingDisplay, RatingList, RatingForm } from "../features/associations/components";
 import '../styles/event-list.css'; // Reutilizar los estilos modernos
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || window.location.origin;

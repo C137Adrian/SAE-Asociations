@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import authService from '../services/authService';
-import useGlobalReducer from '../hooks/useGlobalReducer';
+import authService from '../../services/authService';
+import useGlobalReducer from '../../hooks/useGlobalReducer';
 
 const AuthValidator = ({ children }) => {
     const [isValidating, setIsValidating] = useState(true);
@@ -11,7 +11,6 @@ const AuthValidator = ({ children }) => {
     useEffect(() => {
         const validateAuthOnStartup = async () => {
             try {
-                // Validación local rápida del token
                 authService.isTokenExpired();
             } catch (error) {
                 console.error('Error validating auth on startup:', error);
@@ -22,13 +21,11 @@ const AuthValidator = ({ children }) => {
 
         validateAuthOnStartup();
 
-        // Escuchar eventos de limpieza de autenticación
         const handleAuthCleared = () => {
             dispatch({ type: 'LOGOUT' });
             navigate('/');
         };
 
-        // Escuchar cambios en el estado de autenticación
         const handleAuthStateChanged = (event) => {
             if (!event.detail.isAuthenticated) {
                 dispatch({ type: 'LOGOUT' });
@@ -45,7 +42,6 @@ const AuthValidator = ({ children }) => {
         };
     }, [dispatch, navigate]);
 
-    // Mostrar un spinner mientras se valida
     if (isValidating) {
         return (
             <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
@@ -59,4 +55,4 @@ const AuthValidator = ({ children }) => {
     return children;
 };
 
-export default AuthValidator; 
+export default AuthValidator;

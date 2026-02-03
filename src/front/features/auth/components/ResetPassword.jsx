@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export const ResetPassword = () => {
-    const { token } = useParams(); // Obtiene el token de la URL 
-    const navigate = useNavigate(); // Redirigir al login
+    const { token } = useParams();
+    const navigate = useNavigate();
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
-    const API_BASE_URL = import.meta.env.VITE_BACKEND_URL; 
+    const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +20,6 @@ export const ResetPassword = () => {
             return;
         }
 
-        // Validación contraseña
         if (newPassword.length < 8) {
             setError("La contraseña debe tener al menos 8 caracteres.");
             return;
@@ -44,10 +43,9 @@ export const ResetPassword = () => {
                 setMessage(data.message || "Contraseña restablecida con éxito. Redirigiendo a la página de inicio de sesión...");
                 setNewPassword("");
                 setConfirmNewPassword("");
-                // Redirigir al login después de un breve retraso
                 setTimeout(() => {
                     navigate('/login');
-                }, 3000); // Redirige después de 3 segundos
+                }, 3000);
             } else {
                 setError(data.error || "Hubo un problema al restablecer tu contraseña. El enlace puede ser inválido o haber expirado.");
             }

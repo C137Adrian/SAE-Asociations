@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import authService from '../services/authService.js';
-import NotificationModal from '../components/NotificationModal';
+import { NotificationModal, ProfileImageUploader } from '../shared/components';
 import useNotification from '../hooks/useNotification';
-import ProfileImageUploader from '../components/ProfileImageUploader';
 import '../styles/event-list.css'; // Reutilizar estilos
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || window.location.origin;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/cloudinary-widget.css';
+import '../../styles/cloudinary-widget.css';
 
 const ProfileImageUploader = ({
     onUploadSuccess,
@@ -72,13 +72,13 @@ const ProfileImageUploader = ({
                 sources: ['local', 'url', 'camera'],
                 multiple: false,
                 cropping: true,
-                croppingAspectRatio: 1, // Forzar aspect ratio 1:1 (cuadrado)
+                croppingAspectRatio: 1,
                 croppingDefaultSelectionRatio: 1,
                 croppingShowDimensions: true,
                 folder: 'sae_profiles',
                 resourceType: 'image',
                 clientAllowedFormats: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
-                maxFileSize: 5000000, // 5MB
+                maxFileSize: 5000000,
                 maxImageWidth: 800,
                 maxImageHeight: 800,
                 croppingValidateDimensions: true,
@@ -214,7 +214,6 @@ const ProfileImageUploader = ({
                 }
 
                 if (result && result.event === "success") {
-                    // Imagen de perfil subida exitosamente
                     onUploadSuccess && onUploadSuccess(result.info.secure_url, result.info);
                 }
             }
@@ -225,7 +224,6 @@ const ProfileImageUploader = ({
 
     return (
         <div className="profile-image-uploader d-flex flex-column align-items-center">
-            {/* Avatar circular */}
             <div
                 className="profile-avatar position-relative shadow-sm"
                 style={{
@@ -270,7 +268,6 @@ const ProfileImageUploader = ({
                     </div>
                 )}
 
-                {/* Overlay de edición */}
                 <div
                     className="profile-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
                     style={{
@@ -289,7 +286,6 @@ const ProfileImageUploader = ({
                 </div>
             </div>
 
-            {/* Botón de acción */}
             <button
                 type="button"
                 className="btn btn-outline-primary btn-sm mt-2"
@@ -330,7 +326,6 @@ const ProfileImageUploader = ({
                 )}
             </button>
 
-            {/* Estilos CSS integrados */}
             <style>{`
                 .profile-avatar:hover .profile-overlay {
                     opacity: 1 !important;
@@ -353,4 +348,4 @@ const ProfileImageUploader = ({
     );
 };
 
-export default ProfileImageUploader; 
+export default ProfileImageUploader;

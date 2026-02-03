@@ -8,8 +8,8 @@ export const ForgotPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage(""); // Limpia mensajes anteriores
-        setError("");   // Limpia errores anteriores
+        setMessage("");
+        setError("");
 
         try {
             const response = await fetch(`${API_BASE_URL}/api/forgot-password`, {
@@ -24,7 +24,7 @@ export const ForgotPassword = () => {
 
             if (response.ok) {
                 setMessage(data.message || "Si tu email está registrado, recibirás un enlace de recuperación en tu bandeja de entrada.");
-                setEmail(""); // Limpiar el campo de email
+                setEmail("");
             } else {
                 setError(data.error || "Hubo un problema al procesar tu solicitud. Intenta de nuevo.");
             }

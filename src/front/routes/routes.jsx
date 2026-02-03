@@ -15,9 +15,8 @@ const Donations = lazy(() => import('../pages/Donations'));
 const DonationSuccess = lazy(() => import('../pages/DonationSuccess'));
 const DonationCancel = lazy(() => import('../pages/DonationCancel'));
 const AccountSettings = lazy(() => import('../pages/AccountSettings'));
-import AuthValidator from '../components/AuthValidator';
-const ForgotPassword = lazy(() => import('../components/ForgotPassword'));
-const ResetPassword = lazy(() => import('../components/ResetPassword'));
+import { AuthValidator } from '../shared/components';
+import { ForgotPassword, ResetPassword } from '../features/auth/components';
 
 const ProtectedLayout = () => (
   <AuthValidator>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const StarRating = ({ rating = 0, onRatingChange = null, readonly = false, size = 'md' }) => {
+export const StarRating = ({ rating = 0, onRatingChange = null, readonly = false, size = 'md' }) => {
     const [hoverRating, setHoverRating] = useState(0);
 
     const sizeClasses = {
@@ -72,4 +72,4 @@ const StarRating = ({ rating = 0, onRatingChange = null, readonly = false, size 
     );
 };
 
-export default StarRating; 
+export default StarRating;

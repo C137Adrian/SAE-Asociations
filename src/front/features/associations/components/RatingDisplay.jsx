@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import StarRating from './StarRating';
-import { ratingService } from '../services/ratingService';
+import { StarRating } from '../../../shared/components';
+import { ratingService } from '../../../services/ratingService';
 
 const RatingDisplay = ({ associationId, onRateClick }) => {
     const [ratingSummary, setRatingSummary] = useState(null);
@@ -113,4 +113,4 @@ const RatingDisplay = ({ associationId, onRateClick }) => {
     );
 };
 
-export default RatingDisplay; 
+export default RatingDisplay;

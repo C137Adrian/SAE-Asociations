@@ -3,9 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { EventCard } from "../features/events/components";
 import { useLocation } from "react-router-dom";
 import authService from "../services/authService";
-import NotificationModal from '../components/NotificationModal';
+import { NotificationModal, FilterModal } from '../shared/components';
 import useNotification from '../hooks/useNotification';
-import { FilterModal } from "../components/FilterModal";
 import '../styles/event-list.css'; // Asegúrate de que este archivo CSS exista y contenga los estilos
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;

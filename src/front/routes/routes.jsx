@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../pages/Layout';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
-import RegisterUser from '../pages/RegisterUser';
-import RegisterAssociation from '../pages/RegisterAssociation';
-import { EventDetail } from '../pages/EventDetail';
-import { EventList } from '../pages/EventList';
-import { EventCreation } from '../pages/EventCreation';
-import { AssociationList } from '../pages/AssociationList';
-import { AssociationDetail } from '../pages/AssociationDetail';
-import DonateForm from '../pages/DonateForm';
-import Donations from '../pages/Donations';
-import DonationSuccess from '../pages/DonationSuccess';
-import DonationCancel from '../pages/DonationCancel';
-import { AccountSettings } from '../pages/AccountSettings';
+const Home = lazy(() => import('../pages/Home'));
+const Login = lazy(() => import('../pages/Login'));
+const RegisterUser = lazy(() => import('../pages/RegisterUser'));
+const RegisterAssociation = lazy(() => import('../pages/RegisterAssociation'));
+const EventDetail = lazy(() => import('../pages/EventDetail'));
+const EventList = lazy(() => import('../pages/EventList'));
+const EventCreation = lazy(() => import('../pages/EventCreation'));
+const AssociationList = lazy(() => import('../pages/AssociationList'));
+const AssociationDetail = lazy(() => import('../pages/AssociationDetail'));
+const DonateForm = lazy(() => import('../pages/DonateForm'));
+const Donations = lazy(() => import('../pages/Donations'));
+const DonationSuccess = lazy(() => import('../pages/DonationSuccess'));
+const DonationCancel = lazy(() => import('../pages/DonationCancel'));
+const AccountSettings = lazy(() => import('../pages/AccountSettings'));
 import AuthValidator from '../components/AuthValidator';
-import { ForgotPassword } from '../components/ForgotPassword';
-import { ResetPassword } from '../components/ResetPassword';
+const ForgotPassword = lazy(() => import('../components/ForgotPassword'));
+const ResetPassword = lazy(() => import('../components/ResetPassword'));
 
 const ProtectedLayout = () => (
   <AuthValidator>
-    <Layout />
+    <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+      <Layout />
+    </Suspense>
   </AuthValidator>
 );
 
@@ -37,11 +39,19 @@ const routerConfig = {
       children: [
         {
           index: true,
-          element: <Home />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <Home />
+            </Suspense>
+          )
         },
         {
           path: "login",
-          element: <Login />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <Login />
+            </Suspense>
+          )
         },
         {
           path: "register/user",
@@ -66,11 +76,19 @@ const routerConfig = {
         },
         {
           path: "event/detail/:id",
-          element: <EventDetail />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando evento...</div>}>
+              <EventDetail />
+            </Suspense>
+          )
         },
         {
           path: "event/list",
-          element: <EventList />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando lista...</div>}>
+              <EventList />
+            </Suspense>
+          )
         },
         {
           path: "event/list/:association_id",
@@ -78,23 +96,43 @@ const routerConfig = {
         },
         {
           path: "event/creation",
-          element: <EventCreation />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando editor...</div>}>
+              <EventCreation />
+            </Suspense>
+          )
         },
         {
           path: "associations",
-          element: <AssociationList />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando asociaciones...</div>}>
+              <AssociationList />
+            </Suspense>
+          )
         },
         {
           path: "association/:id",
-          element: <AssociationDetail />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando asociación...</div>}>
+              <AssociationDetail />
+            </Suspense>
+          )
         },
         {
           path: "donations",
-          element: <Donations />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando donaciones...</div>}>
+              <Donations />
+            </Suspense>
+          )
         },
         {
           path: "donate/association/:id",
-          element: <DonateForm />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando formulario de donación...</div>}>
+              <DonateForm />
+            </Suspense>
+          )
         },
         {
           path: "donation-success",

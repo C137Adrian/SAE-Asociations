@@ -13,6 +13,16 @@ Plan de migración (pasos):
 4. Ejecutar la app localmente y corregir imports uno a uno.
 5. Una vez todo funcione, eliminar archivos antiguos y hacer commit final.
 
+Cambios en esta fase 3C:
+
+- Añadido `src/front/shared/components/index.jsx` para re-exportar componentes compartidos y simplificar imports.
+- Rutas principales actualizadas para `React.lazy` + `Suspense` en `src/front/routes/routes.jsx` para habilitar code-splitting y carga bajo demanda de páginas (Home, Login, Events, Associations, Donations, etc.).
+
+Notas:
+
+- Después de estos cambios, la primera carga del bundle se hace más ligera y las páginas se descargan cuando el usuario navega a ellas.
+- Mantén `src/front/components` con los archivos originales hasta que completes las migraciones de imports; los re-exports permiten usar `src/front/shared/components` gradualmente.
+
 Mapping sugerido (archivo actual -> nuevo lugar):
 - `src/front/pages/Login.jsx` -> `src/front/features/auth/pages/Login.jsx`
 - `src/front/pages/RegisterUser.jsx` -> `src/front/features/auth/pages/RegisterUser.jsx`

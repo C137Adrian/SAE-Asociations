@@ -33,7 +33,6 @@ ordered-set==4.1.0
 packaging==25.0
 pipenv==2025.0.4
 platformdirs==4.3.8
-psycopg2-binary==2.9.10
 Pygments==2.19.1
 PyJWT==2.10.1
 python-dotenv==1.1.1

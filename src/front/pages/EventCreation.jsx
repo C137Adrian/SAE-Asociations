@@ -95,3 +95,4 @@ export const EventCreation = () => {
         </div>
     );
 };
+export default EventCreation;

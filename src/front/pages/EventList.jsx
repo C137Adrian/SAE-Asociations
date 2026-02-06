@@ -316,3 +316,4 @@ export const EventList = () => {
         </div>
     );
 };
+export default EventList;

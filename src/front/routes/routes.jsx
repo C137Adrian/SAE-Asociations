@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../pages/Layout';
+import { AuthValidator } from '../shared/components';
+import { ForgotPassword, ResetPassword } from '../features/auth/components';
 const Home = lazy(() => import('../pages/Home'));
 const Login = lazy(() => import('../pages/Login'));
 const RegisterUser = lazy(() => import('../pages/RegisterUser'));
@@ -15,8 +17,6 @@ const Donations = lazy(() => import('../pages/Donations'));
 const DonationSuccess = lazy(() => import('../pages/DonationSuccess'));
 const DonationCancel = lazy(() => import('../pages/DonationCancel'));
 const AccountSettings = lazy(() => import('../pages/AccountSettings'));
-import { AuthValidator } from '../shared/components';
-import { ForgotPassword, ResetPassword } from '../features/auth/components';
 
 const ProtectedLayout = () => (
   <AuthValidator>
@@ -54,24 +54,35 @@ const routerConfig = {
         },
         {
           path: "register/user",
-          element: <RegisterUser />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <RegisterUser />
+            </Suspense>
+          )
         },
         {
           path: "register/association",
-          element: <RegisterAssociation />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <RegisterAssociation />
+            </Suspense>
+          )
         },
-        // Password Recovery Routes
         {
           path: "forgot-password",
-          element: <ForgotPassword />
+          element: <ForgotPassword /> // Estos no son lazy, no necesitan Suspense
         },
         {
           path: "reset-password/:token",
-          element: <ResetPassword />
+          element: <ResetPassword /> // Estos no son lazy, no necesitan Suspense
         },
         {
           path: "account/settings",
-          element: <AccountSettings />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <AccountSettings />
+            </Suspense>
+          )
         },
         {
           path: "event/detail/:id",
@@ -91,7 +102,11 @@ const routerConfig = {
         },
         {
           path: "event/list/:association_id",
-          element: <EventList />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando lista...</div>}>
+              <EventList />
+            </Suspense>
+          )
         },
         {
           path: "event/creation",
@@ -135,15 +150,27 @@ const routerConfig = {
         },
         {
           path: "donation-success",
-          element: <DonationSuccess />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <DonationSuccess />
+            </Suspense>
+          )
         },
         {
           path: "donation-cancel",
-          element: <DonationCancel />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <DonationCancel />
+            </Suspense>
+          )
         },
         {
           path: "*",
-          element: <Home />
+          element: (
+            <Suspense fallback={<div className="text-center py-5">Cargando...</div>}>
+              <Home />
+            </Suspense>
+          )
         }
       ]
     }

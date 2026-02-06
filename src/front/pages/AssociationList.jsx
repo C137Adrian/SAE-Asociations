@@ -158,4 +158,5 @@ export const AssociationList = () => {
             />
         </div>
     );
-}; 
+};
+export default AssociationList;
